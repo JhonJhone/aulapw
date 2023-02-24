@@ -1,0 +1,11 @@
+{% include "inc/head.html" %}
+
+    <h1>Twig tá bala</h1>
+    <p>Welcome {{ nome }}</p>
+    <p>u'r age is {{ idade}}</p>
+
+    {% for i in range(1,10) %}
+     <p>{{ i }}</p>
+     {% endfor %}
+
+{% include "inc/foot.html" %}
