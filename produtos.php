@@ -20,7 +20,11 @@ $produtos = [
     ],
     [
         'nome' => 'Boné',
-        'preco' => 39.9,
+        'preco' => 39.99,
+    ],
+    [
+        'nome' => 'Automotivel Cadillac',
+        'preco' => 460,
     ],
 ];
 
