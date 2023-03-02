@@ -1,0 +1,16 @@
+{# templates/login.html #}
+
+{% if aconteceu_erro %}
+    Errou a senha burrão HAHAHHAHAHAHAHAHAHHA 😂😂🤣🤣 cuzão
+{% endif %}
+<form action="login_verify.php" method="post">
+    <div>
+        <input type="text" name="user" placeholder="Nome de usuário">
+    </div>
+    <div>
+        <input type="password" name="pass" placeholder="Senha">
+    </div>
+    <div>
+        <input type="submit" value="Acessar">
+    </div>
+</form>
