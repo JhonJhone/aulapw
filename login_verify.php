@@ -5,6 +5,12 @@ $pass = $_POST['pass'];
 
 if ($user == 'jhon' && $pass == '123') {
     #Login sucesso
+
+    #armazenar user
+    session_start();
+    $_SESSION['user'] = 'jhon';
+
+    #redirecionar usuario
     header('location:welcome.php');
     die;
 }else {

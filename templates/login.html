@@ -1,7 +1,9 @@
 {# templates/login.html #}
 
-{% if aconteceu_erro %}
+{% if erro == 1 %}
     Errou a senha burrão HAHAHHAHAHAHAHAHAHHA 😂😂🤣🤣 cuzão
+    {% elseif erro == 2 %}
+    Uai so, quer entrar no terreno que não te pertence né cabaço 🤠🤭
 {% endif %}
 <form action="login_verify.php" method="post">
     <div>

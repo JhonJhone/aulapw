@@ -5,5 +5,5 @@ require('twig_carregar.php');
 $erro = $_GET['erro'] ?? false;
 
 echo $twig->render('login.html', [
-    'aconteceu_erro' => $erro
+    'erro' => $erro,
 ]);
