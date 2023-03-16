@@ -19,3 +19,5 @@ echo $twig->render('welcome.html', [
     'user' => $_SESSION['user'],
 ]);
 
+
+

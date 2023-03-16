@@ -1,0 +1,32 @@
+{% include "inc/head.html" %}
+
+<h3>Idiotas</h3>
+<p>Listagem dos imbecís:</p>
+
+<table border= 1px solid black>
+<tr>
+<th>Usuários</th>
+<th>Email</th>
+<th>Username</th>
+</tr>
+
+{%for usr in usuarios%}
+<tr>
+<th>{{usr.nome}}</th>
+<th>{{usr.email}}</th>
+<th>{{usr.username}}</th>
+<td><a href="usurario_apagar.php?id={{usr.id}}">Moer na porrada</a></td>
+</tr>
+{%else%}
+<tr>
+<td colspan = 2>Nenhum Idiota</td>
+</tr>
+{%endfor%}
+</table>
+
+<a type="submit" href="novo_u.php">Adicionar</a>
+
+
+
+
+{% include "inc/foot.html" %}
