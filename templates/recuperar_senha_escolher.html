@@ -1,9 +1,13 @@
 <form action="recuperar_senha_escolher.php" method="post">
+<input type="hidden" name="token" value="{{ token }}">
 <div>
     Fds amigão, digita uma porra nova aí
 </div>
 <div>
-    <input type="password" name="senha">
+    <input type="password" name="senha" id="senha">
+    <input type="button" id="olho" value="👀">
 </div>
 <input type="submit" value="Submita">
 </form>
+
+<script src="js/olho.js"></script>
