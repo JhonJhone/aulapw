@@ -1,10 +1,15 @@
+{% if msg %}
+{{msg}}
+{% endif %}
+
 <form action="recuperar_senha_escolher.php" method="post">
 <input type="hidden" name="token" value="{{ token }}">
 <div>
     Fds amigão, digita uma porra nova aí
 </div>
 <div>
-    <input type="password" name="senha" id="senha">
+    <input type="password" name="senha" id="senha"> <br>
+    <input type="password" name="senha_confirma" id="senha_confirma">
     <input type="button" id="olho" value="👀">
 </div>
 <input type="submit" value="Submita">
