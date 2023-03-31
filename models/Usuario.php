@@ -2,5 +2,5 @@
 
 class Usuario extends Model
 {
-    
+
 }

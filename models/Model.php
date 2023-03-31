@@ -1,5 +1,5 @@
 <?php
-
+//query() -> executa a consulta direto
 class Model
 {
 //Não é a forma mais indicada de armazenar usuário e senha
@@ -21,6 +21,19 @@ public function __construct(){
     $this->conex = new PDO("{$this->driver}:host={$this->host};port={$this->porta}; dbname={$this->dbname}",$this->user ,$this->password);
 }
 public function getAll(){
+    $sql = $this->conex->query("SELECT * FROM {$this->table} WHERE ativo = 1");
 
+    return $sql->fetchAll(PDO::FETCH_ASSOC);
+}
+private $id;
+public function getById($id){
+    $this->id = $id;
+
+    $sql = $this->conex->prepare("SELECT * FROM {$this->table} WHERE id = :id");
+    $sql->bindParam(":id", $this->id);
+    $sql->execute();
+
+    $user = $sql->fetch(PDO::FETCH_ASSOC);
+    return $user;
 }
 }

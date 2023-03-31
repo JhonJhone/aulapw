@@ -6,15 +6,15 @@
 <table border= 1px solid black>
 <tr>
 <th>Usuários</th>
-<th>Email</th>
-<th>Username</th>
+<th>Admin</th>
+<th>Ativo</th>
 </tr>
 
 {%for usr in usuarios%}
 <tr>
-<th>{{usr.nome}}</th>
-<th>{{usr.email}}</th>
-<th>{{usr.username}}</th>
+<td><a href="usuario_ver.php?id={{usr.id}}">{{usr.username}}</a></td>
+<td>{{usr.admin}}</td>
+<td>{{usr.ativo}}</td>
 <td><a href="usuario_apagar.php?id={{usr.id}}">Moer na porrada</a></td>
 </tr>
 {%else%}
