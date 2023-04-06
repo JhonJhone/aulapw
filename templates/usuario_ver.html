@@ -1,5 +1,7 @@
-{% include "inc/head.html" %}
+{% extends "inc/base.html" %}
 
+{% block conteudo %}
 
+<p>Nome: {{usuario.username}}</p>
 
-{% include "inc/foot.html" %}
+{% endblock %}

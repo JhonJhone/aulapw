@@ -16,14 +16,13 @@ if(!$user || !$pass || !$nome || !$email){
 
 $pass = password_hash($pass, PASSWORD_BCRYPT);
 
-$usr = new Usuario();
-$usr->create([
-    'username' => $user,
-    'senha' => $pass,
-    'email' => $email,
-    'admin' => $adm,
-    'ativo' => 1,
-]);
+$sql = $pdo->prepare('INSERT INTO usuarios(nome,email,username,senha,admin,ativo) VALUES (:nome,:email,:user,:pass,:adm,:atv)');
 
+$sql->bindParam(':nome', $nome);
+$sql->bindParam(':email', $email);
+$sql->bindParam(':user', $user);
+$sql->bindParam(':pass', $pass);
+$sql->bindParam(':adm', $adm);
+$sql->bindParam(':atv', $atv);
 
-header('location:usuarios.php');
+$sql->execute();
