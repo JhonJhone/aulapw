@@ -40,12 +40,7 @@ public function create($data){
     //Inicia a construção dp SQL
     $sql = "INSERT INTO {$this->table}";
 
-    //Prepara os campos e placeholders
-    foreach(array_keys($data) as $field){
-        $sql_fields[] = "{$field} = :{$field}";
-    }
-    $sql_fields = implode(', ', $sql_fields);
-
+    $sql_fields = $this->_sql_fields($data);
     //Monta a consulta
     $sql .= " SET {$sql_fields}";
 
@@ -60,6 +55,18 @@ public function create($data){
     $insert->execute($data);
 
     return $insert->errorInfo();
+    }
+
+public function update($data, $id){
+
+}
+
+private function _sql_fields($data){
+    //Prepara os campos e placeholders
+    foreach(array_keys($data) as $field){
+        $sql_fields[] = "{$field} = :{$field}";
+    }
+    return implode(', ', $sql_fields);
 }
 
 }
