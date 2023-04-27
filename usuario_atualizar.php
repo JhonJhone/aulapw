@@ -19,5 +19,5 @@ $usr->update([
     'username' => $username,
 ], $id);
 
-header('location:usuarios.php');
+header('location:/usuarios');
 die;

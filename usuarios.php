@@ -7,7 +7,7 @@ require('models/Model.php');
 require('models/Usuario.php');
 
 $usr = new Usuario();
-$usuarios = $usr->getAll();
+$usuarios = $usr->getAll(['ativo' => 1]);
 
 // $sql = $pdo->query('SELECT id,nome, email, username FROM usuarios WHERE ativo = 1');
 // $usuarios = $sql->fetchAll(PDO::FETCH_ASSOC);

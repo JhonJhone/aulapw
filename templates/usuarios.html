@@ -1,6 +1,8 @@
-{% include "inc/head.html" %}
+{% extends "inc/base.html" %}
 
-<h3>Idiotas</h3>
+{% block titulo %}<h3>Idiotas</h3>{% endblock %}
+
+{% block conteudo %}
 <p>Listagem dos imbecís:</p>
 
 <table border= 1px solid black>
@@ -12,10 +14,10 @@
 
 {%for usr in usuarios%}
 <tr>
-<td><a href="usuario_ver.php?id={{usr.id}}">{{usr.username}}</a></td>
+<td><a href="/usuario_ver/{{usr.id}}">{{usr.username}}</a></td>
 <td>{{usr.admin}}</td>
 <td>{{usr.ativo}}</td>
-<td><a href="usuario_apagar.php?id={{usr.id}}">Moer na porrada</a></td>
+<td><a href="/usuario_apagar/{{usr.id}}">Moer na porrada</a></td>
 </tr>
 {%else%}
 <tr>
@@ -26,7 +28,9 @@
 
 <a type="submit" href="novo_u.php">Adicionar</a>
 
+{% endblock %}
 
 
 
-{% include "inc/foot.html" %}
+
+

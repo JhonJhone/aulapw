@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $sql->execute([$id]);
     }
     
-    header('location:usuarios.php');
+    header('location:/usuarios');
     die;
 }
 

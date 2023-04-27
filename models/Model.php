@@ -20,10 +20,18 @@ public function __construct(){
     //Conecta no BD
     $this->conex = new PDO("{$this->driver}:host={$this->host};port={$this->porta}; dbname={$this->dbname}",$this->user ,$this->password);
 }
-public function getAll(){
-    $sql = $this->conex->query("SELECT * FROM {$this->table} WHERE ativo = 1");
+public function getAll($where = false, $where_glue = 'AND'){
+    if($where){
+        $where_sql = $this->where_fields($where, $where_glue);
+
+        $sql = $this->conex->prepare("SELECT * FROM {$this->table} WHERE {$where_sql}");
+        $sql->execute($where);
+    }else{
+        $sql = $this->conex->query("SELECT * FROM {$this->table}");
+    }
 
     return $sql->fetchAll(PDO::FETCH_ASSOC);
+
 }
 private $id;
 public function getById($id){
@@ -72,12 +80,24 @@ public function update($data, $id){
 
 }
 
-private function _sql_fields($data){
+private function map_fields($data){
     //Prepara os campos e placeholders
     foreach(array_keys($data) as $field){
         $sql_fields[] = "{$field} = :{$field}";
     }
+    return $sql_fields;
+}
+
+private function _sql_fields($data){
+    
+    $sql_fields = $this->map_fields($data);
+    
     return implode(', ', $sql_fields);
 }
 
+private function where_fields($data, $glue = 'AND'){
+    $glue = $glue == 'OR' ? ' OR ' : ' AND ';
+    $fields = $this->map_fields($data);
+    return implode($glue, $fields);
+}
 }
