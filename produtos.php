@@ -1,6 +1,6 @@
 <?php
 #produtos.php
-
+require ('pdo.inc.php');
 require ('vendor/autoload.php');
 
 $loader = new \Twig\Loader\FilesystemLoader('./templates');
